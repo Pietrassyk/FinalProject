@@ -26,6 +26,30 @@ def find_audios(bucket_name, dtype = "wav"):
             s3files.append(filename)
     return s3files
 
+def files_in_table(c, table, file_column):
+    """Finds unique entries in a column
+    Params
+    --------
+    c : cursor Object 
+        Cursor with established connection to database, to execute Querry
+    table : str
+        Table name to be checked
+    file_columm : str
+        Name of the column where the filenames are stored
+
+    Returns
+    --------
+    files : set
+        set of filenames that are found by the querry"""
+    try:
+        c.execute(f"""SELECT DISTINCT {file_column} FROM {table}""")
+        files = set([x[0] for x in c.fetchall()])
+        print(f"Found {len(files)} files in {table} table")
+    except:
+        print(f"Could not find Files in {table} Table")
+        files = {}
+    return files
+
 def transcribe_wav(job_uri, dtype="wav" , lang = 'en-US' ,enforce = False, **kwargs):
     """Transcribe a wav file using a AWS trancribe web API call
     
@@ -91,7 +115,7 @@ def transcribe_wav(job_uri, dtype="wav" , lang = 'en-US' ,enforce = False, **kwa
     
     
     
-    print("Output succesfull")
+    print("Transcription succesfull")
     return trans_json , trans_json_uri
 
 def get_pause(df,start_time,end_time):
