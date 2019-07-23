@@ -78,9 +78,10 @@ def transcribe_wav(job_uri, dtype="wav" , lang = 'en-US' ,enforce = False, **kwa
     job_name = job_uri.split("/")[-1]
     
     #Check whether file is already transcribed
-    jobs = transcribe.list_transcription_jobs()['TranscriptionJobSummaries']
+    jobs = transcribe.list_transcription_jobs(MaxResults=100)['TranscriptionJobSummaries']
     job_names = [job['TranscriptionJobName'] for job in jobs]
-    
+
+
     if job_name in job_names:
         print("File already transcribed")
         go_on = enforce

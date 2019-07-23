@@ -47,6 +47,8 @@ for filename in audio_files:
     print(f"Performing Job {i}/{len(audio_files)}")
     print(f"Current File: {filename}")
     job_uri = f"{bucket_path}/{sub_path}/{filename}"
+    
+    #transcribe audio file into text
     trans_json_uri = transcribe_wav(job_uri)[1]
 
     #load json from URL
@@ -106,9 +108,6 @@ for filename in audio_files:
     
     else:
         print(f"File not in conversations table yet.")
-        #querry for columms
-        c.execute("DESCRIBE conversations")
-        columns = ", ".join(pd.DataFrame(c.fetchall()).iloc[1:,0])
         
         #extract information from filename
         name_split = filename[:-4].split("_")
@@ -119,8 +118,15 @@ for filename in audio_files:
                 int(name_split[-1].lower() == "pro"), 
                 trans_json_uri, 
                 fulltext]
+
+        #querry for columms
+        c.execute("DESCRIBE conversations")
+        columns = ", ".join(pd.DataFrame(c.fetchall()).iloc[1:1+len(values),0])
+        
+
     
         #Querry Database
+        print("Writing Values into Conversations Table")
         querry = """INSERT INTO conversations({}) VALUES ("{}","{}",{},"{}","{}");""".format(columns,*values)
         c.execute(querry)
         conn.commit()
