@@ -5,6 +5,10 @@ prefix = 'sagemaker/FinalProject'
 bucket_path = 'https://s3-us-east-2.amazonaws.com/finaldebatebucket'
 sub_path = "cache-data"
 
-#Connection settings
+#Connection settings RDS
 host  = 'debaterdb.c7oenlqovcjd.us-east-2.rds.amazonaws.com'
 db = "debater"
+
+#Summary config:
+cfg_summary_len = 3
+cfg_summary_lang = "english"
