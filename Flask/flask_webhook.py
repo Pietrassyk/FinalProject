@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
@@ -43,6 +44,10 @@ def upload_file():
 	if file and allowed_file(file.filename):
 		file.filename = secure_filename(file.filename)
 		output   	  = upload_file_to_s3(file, app.config["S3_BUCKET"])
+
+		#run the pipelines
+		os.system("cd .. && python3 driver.py >> log.txt")
+
 		return str(output)
 	else:
 		return redirect("/")

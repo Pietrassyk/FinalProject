@@ -97,7 +97,7 @@ for file in job_list:
     
     #visualize in a wordcloud
     testfd = bigram_to_single_word(bigrams_fd)
-    generate_wordcloud(testfd)
+    #generate_wordcloud(testfd)
     
     #SENTIMENT ANALYSIS
     sia = SentimentIntensityAnalyzer()

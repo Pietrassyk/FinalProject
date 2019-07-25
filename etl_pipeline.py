@@ -2,6 +2,7 @@
 ########
 import pandas as pd
 import requests
+import re
 
 import mysql.connector
 import tpclean.tpclean as tp
@@ -110,14 +111,31 @@ for filename in audio_files:
         print(f"File not in conversations table yet.")
         
         #extract information from filename
-        name_split = filename[:-4].split("_")
-    
-        #fill values                   
+
+        #check whether file has systematic name
+        name_split = filename[:-4].rsplit("_",2)
+        if re.match(".*_.{3,}(_pro|_con).wav",filename):
+            topic = name_split[-2].lower()
+            pro = int(name_split[-1].lower() == "pro")
+
+        #extract information    
+        else:
+            if "pro" == name_split[-1]:
+                pro=1
+                topic = name_split[-2]
+            elif "con" == name_split[-1]:
+                pro=0
+                topic = name_split[-2]
+            else:
+                pro = "NULL"
+                topic = filename[:-4]
+
+        #write values
         values = [filename,
-                name_split[-2].lower(), 
-                int(name_split[-1].lower() == "pro"), 
-                trans_json_uri, 
-                fulltext]
+                        topic, 
+                        pro, 
+                        trans_json_uri, 
+                        fulltext]
 
         #querry for columms
         c.execute("DESCRIBE conversations")
