@@ -48,19 +48,24 @@ def generate_wordcloud(text, **kwargs): # optionally add: stopwords=STOPWORDS an
     plt.show()
 
 def get_summary(file, text, aylien_app_id, aylien_API_KEY, ):
-  """
-  Params
-  --------
+    """
+    Params
+    --------
 
-  Returns
-  --------
-  """
-  print("Calling Aylien API", end = "\r")
-  aylien = textapi.Client(aylien_app_id,aylien_API_KEY)
-  summary = aylien.Summarize({"title": file, 
-                  "text": text,
-                 "sentences_number": cfg_summary_len, 
-                 "language": cfg_summary_lang })
-  summary_text = " ".join(summary["sentences"])
-  print("Summary Successfull")
-  return summary_text
+    Returns
+    --------
+    summary_text : str
+      Summarized text
+    summary_bullerts : list
+      List that contains each scentence of the summary as individual entries
+    """
+    print("Calling Aylien API", end = "\r")
+    aylien = textapi.Client(aylien_app_id,aylien_API_KEY)
+    summary = aylien.Summarize({"title": file, 
+                    "text": text,
+                   "sentences_number": cfg_summary_len, 
+                   "language": cfg_summary_lang })
+    summary_text = " ".join(summary["sentences"])
+    summary_bullets = summary["sentences"]
+    print("Summary Successfull")
+    return summary_text , summary_bullets

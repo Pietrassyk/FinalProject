@@ -1,21 +1,28 @@
 #imports
 
 import os
+import mysql.connector
 from flask import Flask, render_template
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
 from helpers import *
 import time
+from Private.flask_credentials import host, db , user , password
+
+#Setup for DB Connection
+conn_kwargs = {"host":host, 
+               "user":user, 
+               "password":password}
 
 app = Flask(__name__)
 app.config.from_object("Private.flask_credentials")
-
 
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
 
 @app.route("/", methods=["POST"])
+
 def upload_file():
 
 	timestamp = time.time()
@@ -26,7 +33,7 @@ def upload_file():
 		return "No user_file key in request.files"
 
 	# B
-	file    = request.files["user_file"]
+	file = request.files["user_file"]
 
 	"""
         These attributes are also available
@@ -50,7 +57,31 @@ def upload_file():
 		#run the pipelines
 		os.system("cd .. && python3 driver.py >> log.txt")
 
-		return str(output)
+		#create answer as website
+
+		##connect to DB
+		conn = mysql.connector.Connect(database = db, **conn_kwargs)
+		c = conn.cursor()
+		
+		#get bullets image and transcription text
+		c.execute(f"""	SELECT bullet
+						FROM summary_bullets
+						WHERE origin = "{file}"
+						ORDER BY bullet_pos""")
+		bullets = [entry[0] for entry in c.fetchall()]
+		
+
+		c.execute(f"""	SELECT full_text 
+						FROM conversations
+						WHERE filename = '{file}'""")
+		transcription = c.fetchall()[0][0]
+		
+		image = "https://www.mathworks.com/help/examples/matlab/win64/CreateWordCloudFromTableExample_01.png"
+
+		conn.close()
+		return render_template("success.html", bullets = bullets, image = image, transcription = transcription, file = file)
+
+		#return str(output)
 	else:
 		return redirect("/")
 

@@ -123,12 +123,24 @@ for file in job_list:
     print("Inserted frequency dict in content")
     
     #GET SUMMARY
-    summary_text = get_summary(file, text, aylien_app_id, aylien_API_KEY)
+    summary_text , summary_bullets = get_summary(file, text, aylien_app_id, aylien_API_KEY)
     
+    #write Summary to DB
     c.execute(f"""UPDATE conversations
             SET summary = "{summary_text}"
             WHERE filename = "{file}" """)
     conn.commit()
+
+    #write bulletpoints to DB
+    print("Writing Bulletpoints to summary_bullets table")
+    i = 1
+    for bulletpoint in summary_bullets:
+        c.execute(f"""INSERT INTO summary_bullets(origin, bullet_pos, bullet)
+            VALUES ("{file}", {i}, "{bulletpoint}")
+            """)
+        i += 1
+    conn.commit()
+
     print("--------Job complete--------")
 conn.close()
 print("========ALL JOBS FINISHED========")
