@@ -554,3 +554,314 @@ Starting driver
 ##################
 #    FINISHED    #
 ##################
+########Starting SCRIPT########
+Found 17 files in content table
+Found 17 files in conversations table
+=======Setup Complete========
+Performing Job 1/18
+Current File: AM_101_affirmativeaction_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 2/18
+Current File: DJ_1_ban-video-games_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 3/18
+Current File: DJ_644_year-round-schooling_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 4/18
+Current File: DJ_681_ip-rights_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 5/18
+Current File: DJ_841_blasphemy_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 6/18
+Current File: DJ_881_holocaust-denial_pro_2.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 7/18
+Current File: DZ_945_circumcision_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 8/18
+Current File: EH_1_ban-video-games_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 9/18
+Current File: EH_381_monarchy_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 10/18
+Current File: EH_61_doping-in-sport_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 11/18
+Current File: HE_482_tobacco_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 12/18
+Current File: HE_881_holocaust-denial_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 13/18
+Current File: JL_181_multiculturalism_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 14/18
+Current File: JL_602_schoolvouchers_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 15/18
+Current File: TL_121_ban-boxing_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 16/18
+Current File: YB_483_freedom-of-speech_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 17/18
+Current File: YB_602_schoolvouchers_pro.wav
+Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...{'TranscriptionJob': {'TranscriptionJobName': 'YB_602_schoolvouchers_pro.wav', 'TranscriptionJobStatus': 'COMPLETED', 'LanguageCode': 'en-US', 'MediaSampleRateHertz': 44100, 'MediaFormat': 'wav', 'Media': {'MediaFileUri': 'https://s3-us-east-2.amazonaws.com/finaldebatebucket/cache-data/YB_602_schoolvouchers_pro.wav'}, 'Transcript': {'TranscriptFileUri': 'https://s3.us-east-2.amazonaws.com/aws-transcribe-us-east-2-prod/599281969166/YB_602_schoolvouchers_pro.wav/ab71e75e-9381-4bb5-9354-82464fb1194f/asrOutput.json?X-Amz-Security-Token=AgoJb3JpZ2luX2VjEBUaCXVzLWVhc3QtMiJGMEQCIHF%2BiGyJrIUaty0C%2B7Gb6ScbiZ9X4uCVUjYUadzJhvmoAiBjiNI5gf7KPgfqTnpp3eXFNTedIjzukRzEu9FoEBb3bSrjAwiO%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDI0NjM2MTMyMjc1MiIMEG6JONcFmL3XWguQKrcDdelAYDUoOv3E%2Bm6k2dk21ltQFQbuxvAEgqu6YqIeRbZpkM1L5pyLNsWujefrG8w7eAggjY5iRFTX%2B4XirhiMWBv%2FLrE2CpUOlX%2FNhvumJJxQ5jva7THoLQX6FZ8SkfCtwoHHcO3MZMr302vBdmEzNoY5rLG3VFxmdlFdWr7YC7m5g44wTITXdZaOZmQ6rRTkSZRiNstCoOjZTYAXvc7a5Y7ah9qU%2BIpygZw6cwuXExoBEycNP8%2B9gnp%2FP%2FHrGZpLDJjuYvvKCplGf%2FkgRX00jodC%2B66AKM6L0x170IYbah%2BrsE3EbXu9K1lgKIgZKoAtjykqdSJ3msIhaamAiGz%2Bp9Xp9%2BvqLU2ZRZKh86hRAXZEdlcSe5pSlqEzUArBmwQrr2D2tVwrQwoBcZfQ8jrP0YejwGKA2dLQ9iNX1BiexNoCaJL0AUgbv8SMh4YGkdc%2BvMRCjGXIgiC1rt3eoS0ZtkifwOT3rHePNmy0WQa6VaIGZ88y02%2BXf0Myvz3zhXVbbf%2B1EfdatKnjRmekSd5N9nd6UWwSGoBILy8OkatSHvHzJdYVhI6pmF1O%2Bi5%2B%2Bw3fisYLMvwbkjDU%2B4DqBTq1AX0G3h7euF%2F2EJ8dx%2FUfxi%2BrSsXwM7am39%2F%2FS9zrdzfGoetsG2Spbzb%2Bqjjj8HmBZmZf9QP%2Ff%2F6NnuESWYgiq%2BsfZ3xmVzqC%2ByIuB25MqYaVq8NFAO%2BGejZ2Dde3M6r8TM73KSgXdBs7qI32RTHgTF4i%2F58CKDrw%2Fg30yPf%2FFpp2AgWeLCn%2FCmr6slAziDFR2cUUl4HECLzI2hg8WuceTOXwEkyG4CvUfeKpkaAy0BMDqEJ%2FE2I%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190730T133044Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=ASIATSXCHOUAK6WQPX7S%2F20190730%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=64c43e31d502bcc103dc5df4824bb48948c59c4dd526ed03b2ee553b8ba18970'}, 'CreationTime': datetime.datetime(2019, 7, 30, 9, 28, 57, 378000, tzinfo=tzlocal()), 'CompletionTime': datetime.datetime(2019, 7, 30, 9, 30, 43, 319000, tzinfo=tzlocal()), 'Settings': {'ChannelIdentification': False}}, 'ResponseMetadata': {'RequestId': '03c9346a-c596-44cb-822c-f698a164c396', 'HTTPStatusCode': 200, 'HTTPHeaders': {'content-type': 'application/x-amz-json-1.1', 'date': 'Tue, 30 Jul 2019 13:30:43 GMT', 'x-amzn-requestid': '03c9346a-c596-44cb-822c-f698a164c396', 'content-length': '2031', 'connection': 'keep-alive'}, 'RetryAttempts': 0}}
+Transcription succesfull
+Appending to content table
+File not in conversations table yet.
+Writing Values into Conversations Table
+Appending to conversations table
+--------Job complete--------
+Performing Job 18/18
+Current File: testwithrandomname.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+========Finished ETL========
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+========SETUP COMPLETE========
+========Starting JOBs========
+Starting Job 1/1
+Current File: YB_602_schoolvouchers_pro.wav
+Inserted frequency dict in content
+Calling Aylien APISummary Successfull
+Writing Bulletpoints to summary_bullets table
+--------Job complete--------
+========ALL JOBS FINISHED========
+2019-07-30 09:28:07
+Starting driver
+
+##################
+#Step 1 : ETL    #
+##################
+
+##################
+#Step 2 : NLP    #
+##################
+
+##################
+#    FINISHED    #
+##################
+########Starting SCRIPT########
+Found 18 files in content table
+Found 18 files in conversations table
+=======Setup Complete========
+Performing Job 1/18
+Current File: AM_101_affirmativeaction_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 2/18
+Current File: DJ_1_ban-video-games_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 3/18
+Current File: DJ_644_year-round-schooling_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 4/18
+Current File: DJ_681_ip-rights_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 5/18
+Current File: DJ_841_blasphemy_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 6/18
+Current File: DJ_881_holocaust-denial_pro_2.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 7/18
+Current File: DZ_945_circumcision_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 8/18
+Current File: EH_1_ban-video-games_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 9/18
+Current File: EH_381_monarchy_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 10/18
+Current File: EH_61_doping-in-sport_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 11/18
+Current File: HE_482_tobacco_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 12/18
+Current File: HE_881_holocaust-denial_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 13/18
+Current File: JL_181_multiculturalism_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 14/18
+Current File: JL_602_schoolvouchers_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 15/18
+Current File: TL_121_ban-boxing_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 16/18
+Current File: YB_483_freedom-of-speech_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 17/18
+Current File: YB_602_schoolvouchers_pro.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+Performing Job 18/18
+Current File: testwithrandomname.wav
+File already transcribed
+Transcription succesfull
+File transcription already in content table -> will not append!
+File transcription already in conversations table -> will not append!
+--------Job complete--------
+========Finished ETL========
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+Executed Querry
+No Jobs available
+2019-07-30 09:35:49
+Starting driver
+
+##################
+#Step 1 : ETL    #
+##################
+
+##################
+#Step 2 : NLP    #
+##################
+
+##################
+#    FINISHED    #
+##################

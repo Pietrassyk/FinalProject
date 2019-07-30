@@ -66,20 +66,20 @@ def upload_file():
 		#get bullets image and transcription text
 		c.execute(f"""	SELECT bullet
 						FROM summary_bullets
-						WHERE origin = "{file}"
+						WHERE origin = "{file.filename}"
 						ORDER BY bullet_pos""")
 		bullets = [entry[0] for entry in c.fetchall()]
 		
 
 		c.execute(f"""	SELECT full_text 
 						FROM conversations
-						WHERE filename = '{file}'""")
+						WHERE filename = '{file.filename}'""")
 		transcription = c.fetchall()[0][0]
 		
 		image = "https://www.mathworks.com/help/examples/matlab/win64/CreateWordCloudFromTableExample_01.png"
 
 		conn.close()
-		return render_template("success.html", bullets = bullets, image = image, transcription = transcription, file = file)
+		return render_template("success.html", bullets = bullets, image = image, transcription = transcription, file_name = file.filename)
 
 		#return str(output)
 	else:
