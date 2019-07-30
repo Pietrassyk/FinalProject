@@ -5,7 +5,7 @@
         <title>Audio Summary</title>
     </head>
     <body>
-        <h1>{{file_name}}</h1>
+        <h1>{{file_name[:-4]}}</h1>
         <h2>Summary</h2>
         <table>
             <tr>
@@ -17,7 +17,16 @@
                     </ul>
                 </td>
                 <td>
-                    <img src="{{image}}">
+                    <img src="{{image}}" width="700" height="500">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Your Audio Recording
+                    <audio controls>
+                        <source src="{{audio_path}}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
                 </td>
             </tr>
         </table>

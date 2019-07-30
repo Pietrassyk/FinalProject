@@ -63,7 +63,7 @@ def upload_file():
 		conn = mysql.connector.Connect(database = db, **conn_kwargs)
 		c = conn.cursor()
 		
-		#get bullets image and transcription text
+		#get bullets ,transcription text, image , audio_path
 		c.execute(f"""	SELECT bullet
 						FROM summary_bullets
 						WHERE origin = "{file.filename}"
@@ -71,15 +71,17 @@ def upload_file():
 		bullets = [entry[0] for entry in c.fetchall()]
 		
 
-		c.execute(f"""	SELECT full_text 
+		c.execute(f"""	SELECT full_text , bigram_cloud_url , audio_path 
 						FROM conversations
 						WHERE filename = '{file.filename}'""")
-		transcription = c.fetchall()[0][0]
+		transcription, image, audio_path  = c.fetchall()[0]
 		
-		image = "https://www.mathworks.com/help/examples/matlab/win64/CreateWordCloudFromTableExample_01.png"
-
 		conn.close()
-		return render_template("success.html", bullets = bullets, image = image, transcription = transcription, file_name = file.filename)
+		return render_template("success.html", 
+			bullets = bullets, image = image, 
+			transcription = transcription, 
+			file_name = file.filename, 
+			audio_path = audio_path)
 
 		#return str(output)
 	else:

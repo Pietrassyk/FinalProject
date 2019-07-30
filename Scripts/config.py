@@ -12,3 +12,4 @@ db = "debater"
 #Summary config:
 cfg_summary_len = 3
 cfg_summary_lang = "english"
+image_folder = "wordclouds"

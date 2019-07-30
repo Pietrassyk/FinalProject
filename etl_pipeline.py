@@ -130,12 +130,21 @@ for filename in audio_files:
                 pro = "NULL"
                 topic = filename[:-4]
 
+        #reconstruct audio file url
+        print("Get Audio File_path")
+        Key = f"{sub_path}/{filename}"
+        url_split = bucket_path.split("//")
+        url = f"{url_split[0]}//{bucket_name}.{url_split[1].split('/')[0]}"
+        audio_path = f"{url}/{Key}"
+
+
         #write values
         values = [filename,
                         topic, 
                         pro, 
                         trans_json_uri, 
-                        fulltext]
+                        fulltext,
+                        audio_path]
 
         #querry for columms
         c.execute("DESCRIBE conversations")
@@ -145,7 +154,7 @@ for filename in audio_files:
     
         #Querry Database
         print("Writing Values into Conversations Table")
-        querry = """INSERT INTO conversations({}) VALUES ("{}","{}",{},"{}","{}");""".format(columns,*values)
+        querry = """INSERT INTO conversations({}) VALUES ("{}","{}",{},"{}","{}","{}");""".format(columns,*values)
         c.execute(querry)
         conn.commit()
         print("Appending to conversations table")

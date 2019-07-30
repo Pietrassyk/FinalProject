@@ -95,9 +95,14 @@ for file in job_list:
     finder.nbest(BigramAssocMeasures.likelihood_ratio, 10)
     bigrams_fd = finder.ngram_fd
     
-    #visualize in a wordcloud
+    #create a wordcloud and store url in database
     testfd = bigram_to_single_word(bigrams_fd)
-    #generate_wordcloud(testfd)
+    wordcloud_url = generate_wordcloud(testfd, file)
+    print("writing wordclloud to database")
+    c.execute(f"""UPDATE conversations
+                 SET bigram_cloud_url = "{wordcloud_url}"
+                 WHERE filename = "{file}"
+                 """)
     
     #SENTIMENT ANALYSIS
     sia = SentimentIntensityAnalyzer()

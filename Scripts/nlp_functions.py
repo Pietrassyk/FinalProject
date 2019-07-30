@@ -2,9 +2,10 @@
 from wordcloud import WordCloud
 from aylienapiclient import textapi
 import matplotlib.pyplot as plt
+import boto3
+import io
 
-
-from .config import cfg_summary_len ,cfg_summary_lang
+from .config import cfg_summary_len ,cfg_summary_lang , image_folder , bucket_name ,bucket_path
 
 def bigram_to_single_word(bigrams_fd):
   """Concatenate Bigramds to one word seperated by a Space
@@ -20,18 +21,19 @@ def bigram_to_single_word(bigrams_fd):
   out = dict(zip([x[0]+" "+x[1] for x in bigrams_fd.keys()],bigrams_fd.values()))
   return out
 
-def generate_wordcloud(text, **kwargs): # optionally add: stopwords=STOPWORDS and change the arg below
+def generate_wordcloud(text, file, **kwargs): # optionally add: stopwords=STOPWORDS and change the arg below
     """Generates A wordcloud from Frequency Dict
     Params
     --------
-    text:
-    	##
+    text: dict ofr nltk FDict Object
+    	Frequency dictionary of the text to be processed
     kwargs: dict
-    	##
+    	keyword arguments for genrating the wordcloud. Used with the WodCllud Object from the wordcloud library
 
     Returns
     --------
-    	None"""
+    image_url : str
+      S3-Bucket URL of the stored wordcloud"""
     print("Generating wordcloud")
     wordcloud = WordCloud(font_path='/Library/Fonts/Verdana.ttf',
                           random_state = 42,
@@ -43,9 +45,27 @@ def generate_wordcloud(text, **kwargs): # optionally add: stopwords=STOPWORDS an
                           relative_scaling = 1.0, # set or space-separated string
                           **kwargs
                           ).generate_from_frequencies(text)
+
+    #cache figure as a file in memory
+    img_data = io.BytesIO()
+    plt.figure(figsize = (14,10))
     plt.imshow(wordcloud)
     plt.axis("off")
-    plt.show()
+    plt.savefig(img_data, format='png')
+    img_data.seek(0)
+    
+    #load to s3 bucket
+    s3 = boto3.resource('s3')
+    my_bucket = s3.Bucket(bucket_name)
+    Key = f"{image_folder}/{file}.png"
+    my_bucket.put_object(Body=img_data,ContentType='image/png', ACL = "public-read", Key=Key)
+
+    #build url
+    url_split = bucket_path.split("//")
+    url = f"{url_split[0]}//{bucket_name}.{url_split[1].split('/')[0]}"
+    image_url = f"{url}/{Key}"
+    
+    return image_url
 
 def get_summary(file, text, aylien_app_id, aylien_API_KEY, ):
     """
