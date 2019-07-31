@@ -35,7 +35,7 @@ def generate_wordcloud(text, file, **kwargs): # optionally add: stopwords=STOPWO
     image_url : str
       S3-Bucket URL of the stored wordcloud"""
     print("Generating wordcloud")
-    wordcloud = WordCloud(font_path='/Library/Fonts/Verdana.ttf',
+    wordcloud = WordCloud(font_path=None,
                           random_state = 42,
                           background_color = "white",
                           width=800,
