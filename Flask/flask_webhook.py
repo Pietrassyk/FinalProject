@@ -30,6 +30,37 @@ def upload_file():
 		f.write(f"{timestamp}\n")
 	# A
 	if "user_file" not in request.files:
+		##connect to DB
+		conn = mysql.connector.Connect(database = db, **conn_kwargs)
+		c = conn.cursor()
+		
+
+		#DEBUG
+		class File:
+			def __init__(self,name):
+				self.filename = name
+		file = File("YB_1_ban-video-games_pro.wav")
+		#get bullets ,transcription text, image , audio_path
+		c.execute(f"""	SELECT bullet
+						FROM summary_bullets
+						WHERE origin = "{file.filename}"
+						ORDER BY bullet_pos""")
+		bullets = [entry[0] for entry in c.fetchall()]
+		
+
+		c.execute(f"""	SELECT full_text , bigram_cloud_url , audio_path 
+						FROM conversations
+						WHERE filename = '{file.filename}'""")
+		transcription, image, audio_path  = c.fetchall()[0]
+		
+		conn.close()
+		return render_template("success.html", 
+			bullets = bullets, image = image, 
+			transcription = transcription, 
+			file_name = file.filename, 
+			audio_path = audio_path)
+	
+		#KEEP Below after Debugging
 		return "No user_file key in request.files"
 
 	# B

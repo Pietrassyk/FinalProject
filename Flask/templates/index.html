@@ -1,25 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+  <title>Speech Summarizer</title>
+  <meta charset="utf-8">
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/skel-noscript.css">
+<!--[if lte IE 8]>
+<script src="css/ie/html5shiv.js"></script>
+<![endif]-->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery.poptrox-2.2.js"></script>
+<script src="../static/js/skel.min.js"></script>
+<script src="../static/js/init.js"></script>
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="css/ie/v8.css">
+<![endif]-->
 </head>
 <body>
-
-    <h1>Upload Your Audio File here</h1>
-    Please note, that the file has to be in a .wav format. Make sure that the audio contains a person speaking.
-
+  <section id="header">
+    <header>
+      <h1>Speech Summarizer</h1>
+      <p>By Tino Pietrassyk</p>
+    </header>
+    <footer> <a href="#banner" class="button style2 scrolly">Upload a File</a> </footer>
+  </section>
+  
+  <section id="banner">
+    <header>
+      <h2>Upload an Audio File</h2>
+      <br></br>
+      <p>Please note, that the file has to be in a .wav format. Make sure that the audio contains a person speaking.</p>
+    </header>
+    
     <form action="/" method="POST" enctype="multipart/form-data">
-
-        <label for="user_file">Upload Your File</label>
+        <input type="file" name="user_file" class="button style2 scroll" placeholder="Your.wav">
         <br></br>
-        <input type="file" name="user_file">
-        <br></br>
-        <button type="submit">Upload</button>
-
-    </form>
-    Uploading and Processing might take up to 5 Minutes. Please be patient
-
+        <div class="row">
+          <div class="12u">
+            <ul class="actions">
+              <li><button type="submit" class="button style2 scroll" >Upload</button></li>
+            </ul>
+            <br></br>
+          </div>
+        </div> 
+      </form>
+      <p>Uploading and Processing might take up to 5 Minutes. Please be patient</p>
+  </section>
+  <section id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon icon-medium solo"><span>Medium</span></a></li>
+      <li><a href="#" class="icon icon-gmail solo"><span>Gmail</span></a></li>
+      <li><a href="#" class="icon icon-github solo"><span>Github</span></a></li>
+      <li><a href="#" class="icon icon-linkedin solo"><span>LinkedIn</span></a></li>
+    </ul>
+    <div class="copyright">
+      <ul class="menu">
+        <li>&copy; Tino Pietrassyk. All rights reserved.</li>
+        <li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+      </ul>
+    </div>
+  </section>
 </body>
-
 </html>
