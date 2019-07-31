@@ -35,13 +35,14 @@ def generate_wordcloud(text, file, **kwargs): # optionally add: stopwords=STOPWO
     image_url : str
       S3-Bucket URL of the stored wordcloud"""
     print("Generating wordcloud")
-    wordcloud = WordCloud(font_path=None,
+    wordcloud = WordCloud(font_path="Flask/Verdana.ttf",
                           random_state = 42,
-                          background_color = "white",
+                          background_color = None,
                           width=800,
                           height=400,
                           scale = 1,
                           max_words = 15,
+                          mode = "RGBA"
                           relative_scaling = 1.0, # set or space-separated string
                           **kwargs
                           ).generate_from_frequencies(text)
