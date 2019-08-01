@@ -24,22 +24,28 @@ def index():
 @app.route("/", methods=["POST"])
 
 def upload_file():
+	##connect to DB
+	conn = mysql.connector.Connect(database = db, **conn_kwargs)
+	c = conn.cursor()
 
 	timestamp = time.time()
 	with open("log.txt","a") as f:
 		f.write(f"{timestamp}\n")
 	# A
 	if "user_file" not in request.files:
-		##connect to DB
-		conn = mysql.connector.Connect(database = db, **conn_kwargs)
-		c = conn.cursor()
-		
-
-		#DEBUG
+		#DEMO
+		#This i quick and dirty: Make File Class 
 		class File:
 			def __init__(self,name):
 				self.filename = name
-		file = File("SN_61_doping-in-sport_pro.wav")
+		#Get last submitted File
+		c.execute("""	SELECT filename 
+						FROM conversations
+						ORDER BY idconversations DESC
+						LIMIT 1""")
+		last_audio = c.fetchall()[0][0]
+		file = File(last_audio)
+		
 		#get bullets ,transcription text, image , audio_path
 		c.execute(f"""	SELECT bullet
 						FROM summary_bullets
@@ -91,8 +97,8 @@ def upload_file():
 		#create answer as website
 
 		##connect to DB
-		conn = mysql.connector.Connect(database = db, **conn_kwargs)
-		c = conn.cursor()
+		#conn = mysql.connector.Connect(database = db, **conn_kwargs)
+		#c = conn.cursor()
 		
 		#get bullets ,transcription text, image , audio_path
 		c.execute(f"""	SELECT bullet
