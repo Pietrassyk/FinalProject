@@ -9,6 +9,13 @@ from helpers import *
 import time
 from Private.flask_credentials import host, db , user , password
 
+#DEMO/DEBUG
+
+#This is quick and dirty: Make File Class 
+class File:
+	def __init__(self,name):
+		self.filename = name
+
 #Setup for DB Connection
 conn_kwargs = {"host":host, 
                "user":user, 
@@ -65,22 +72,12 @@ def upload_file():
 			transcription = transcription, 
 			file_name = file.filename, 
 			audio_path = audio_path)
-	
+
 		#KEEP Below after Debugging
 		return "No user_file key in request.files"
 
 	# B
 	file = request.files["user_file"]
-
-	"""
-        These attributes are also available
-
-        file.filename               # The actual name of the file
-        file.content_type
-        file.content_length
-        file.mimetype
-
-	"""
 
 	# C.
 	if file.filename == "":
