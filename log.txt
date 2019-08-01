@@ -4159,3 +4159,14 @@ Starting driver
 ##################
 #    FINISHED    #
 ##################
+########Starting SCRIPT########
+Found 33 files in content table
+Found 33 files in conversations table
+=======Setup Complete========
+No Jobs found!
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+Executed Querry
+No Jobs available

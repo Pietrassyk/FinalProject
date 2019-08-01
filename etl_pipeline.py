@@ -32,18 +32,26 @@ c = conn.cursor()
 #connecting via sqlalchemy because pandas needs an engine to store data in an mysql DB
 engine = create_engine(f'mysql+pymysql://{user}:{password}@{conn_kwargs["host"]}:3306/{db}')
 
-#get content of content and conversation table to check if files exist
+#get content of s3 bucket, content table and conversation table to check if files exist
 files_in_content = files_in_table(c,"content", "origin")
 files_in_conversations = files_in_table(c,"conversations", "filename")
-                    
-audio_files = find_audios(bucket_name)
+audio_files = set(find_audios(bucket_name))
+
+#find files with missing entries
+intersect_files = audio_files.intersection(files_in_content).intersection(files_in_conversations)
+all_files = audio_files.union(files_in_content).union(files_in_conversations)
+jobs = all_files-intersect_files
+
 i=0
 
 print("=======Setup Complete========")
-                       
+#check for early stopping
+if not jobs:
+    print ("No Jobs found!")
+    exit()               
 #ETL
 ########
-for filename in audio_files:
+for filename in jobs:
     i+=1
     print(f"Performing Job {i}/{len(audio_files)}")
     print(f"Current File: {filename}")
