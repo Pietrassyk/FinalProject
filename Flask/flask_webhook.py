@@ -39,7 +39,7 @@ def upload_file():
 		class File:
 			def __init__(self,name):
 				self.filename = name
-		file = File("TL_681_ip-rights_pro.wav")
+		file = File("SN_61_doping-in-sport_pro.wav")
 		#get bullets ,transcription text, image , audio_path
 		c.execute(f"""	SELECT bullet
 						FROM summary_bullets
