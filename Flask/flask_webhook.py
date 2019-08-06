@@ -90,11 +90,17 @@ def upload_file():
 		
 		#convert file if necessary
 		if file.filename[-4:] != ".wav":
-			#Read and convert bytes then store temp file
-			to_convert = AudioSegment.from_file(file)
-			new_name = file.filename.rsplit(".", 1)[0]+".wav"
-			to_convert.export(new_name, format="wav")
 			
+			#temporarily store file to avoid No Header bug		
+			temp_name = file.filename
+			file.save(temp_name)
+
+			#Read and convert bytes then store temp file
+			to_convert = AudioSegment.from_file(temp_name)
+			new_name = temp_name.rsplit(".", 1)[0]+".wav"
+			os.remove(temp_name)
+			to_convert.export(new_name, format="wav")
+
 			#Open temp file and wrap in werkzeug FileStorage Object, so Boto3 can properly handle it
 			converted = open(new_name, "rb")
 			file = FileStorage(converted, content_type="audio/wav")
