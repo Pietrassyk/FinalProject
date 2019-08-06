@@ -4,10 +4,16 @@ import os
 import mysql.connector
 from flask import Flask, render_template
 from flask import Flask, render_template, request, redirect
+
+from pydub import AudioSegment
+
 from werkzeug import secure_filename
+from werkzeug import FileStorage
 from helpers import *
 import time
 from Private.flask_credentials import host, db , user , password
+
+
 
 #DEMO/DEBUG
 
@@ -41,10 +47,6 @@ def upload_file():
 	# A
 	if "user_file" not in request.files:
 		#DEMO
-		#This i quick and dirty: Make File Class 
-		class File:
-			def __init__(self,name):
-				self.filename = name
 		#Get last submitted File
 		c.execute("""	SELECT filename 
 						FROM conversations
@@ -85,13 +87,24 @@ def upload_file():
 
 	# D.
 	if file and allowed_file(file.filename):
+		
+		#convert file if necessary
+		if file.filename[-4:] != ".wav":
+			#Read and convert bytes then store temp file
+			to_convert = AudioSegment.from_file(file)
+			new_name = file.filename.rsplit(".", 1)[0]+".wav"
+			to_convert.export(new_name, format="wav")
+			
+			#Open temp file and wrap in werkzeug FileStorage Object, so Boto3 can properly handle it
+			converted = open(new_name, "rb")
+			file = FileStorage(converted, content_type="audio/wav")
+			os.remove(new_name)
+			
 		file.filename = secure_filename(file.filename)
 		output   	  = upload_file_to_s3(file, app.config["S3_BUCKET"])
 
 		#run the pipelines
 		os.system("cd .. && python3 driver.py >> log.txt")
-
-		#create answer as website
 
 		##connect to DB
 		#conn = mysql.connector.Connect(database = db, **conn_kwargs)

@@ -4170,3 +4170,116 @@ successfully imported module
 Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
 Executed Querry
 No Jobs available
+########Starting SCRIPT########
+Found 35 files in content table
+Found 35 files in conversations table
+=======Setup Complete========
+No Jobs found!
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+Executed Querry
+No Jobs available
+2019-08-01 11:05:04
+Starting driver
+
+##################
+#Step 1 : ETL    #
+##################
+
+##################
+#Step 2 : NLP    #
+##################
+
+##################
+#    FINISHED    #
+##################
+########Starting SCRIPT########
+Found 35 files in content table
+Found 35 files in conversations table
+=======Setup Complete========
+Performing Job 1/36
+Current File: SF_21_one-shild_pro.wav
+Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...{'TranscriptionJob': {'TranscriptionJobName': 'SF_21_one-shild_pro.wav', 'TranscriptionJobStatus': 'COMPLETED', 'LanguageCode': 'en-US', 'MediaSampleRateHertz': 44100, 'MediaFormat': 'wav', 'Media': {'MediaFileUri': 'https://s3-us-east-2.amazonaws.com/finaldebatebucket/cache-data/SF_21_one-shild_pro.wav'}, 'Transcript': {'TranscriptFileUri': 'https://s3.us-east-2.amazonaws.com/aws-transcribe-us-east-2-prod/599281969166/SF_21_one-shild_pro.wav/8673a2f9-eb1a-431b-823b-fea0356da477/asrOutput.json?X-Amz-Security-Token=AgoJb3JpZ2luX2VjEEYaCXVzLWVhc3QtMiJGMEQCIBdm9orTj9YvKeIq3JAFa5O3LIDJsTCipZA96GxjpihsAiAhIdb8FE6G4HzJlnQVvxMf2Z1S2HgARO3isUSFFbeqQirjAwi%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDI0NjM2MTMyMjc1MiIM6hogVGLk9AxdZ2X2KrcDl2NNp757CSoOay%2FfpycN1IE3dbZXRn0DoG9N1lmn6CX8RUIUNkt4DSMkXVJmlp6%2BXUDbwW9OWgbQhZcmvjJ98EszyvdH73fa55lcxjF7xWqJNC%2Bsnwc9%2BFndOt5aFLpI%2BfCVbzxAJkTCbOPGUedLsFd7H2U3YBC3pH%2BWQKOZtCTApPlEbqsQPwlymYamnkF6s9BW%2FNM2F0Rlby11JOMhZGo5%2Bko5EH3EHxLpN%2Fv8Wfi7IpjhMDb7AEhatZhCIAyhUjg3GxTYLFgrQwCCV4gps81J5q22WP7KTls5VqE1jXQmP%2FalLneyNEMuhdT8vleA%2B3E1TH8pSxieviLnJuJiHkV8hq%2FYiAu4R92CT5ZfGHWygSBNPx0%2FW1KNIDP4fEQXKvE1SxSex468rAeu5KUCQJ4K6C%2BWJuiOMFAGjnA%2BrWi7fdhBieDWOyidtEYRI%2BoI5XAZiFRgAOoW5K7MqhZTcEqeVHraTGFhQnjnOA8VZUvlz%2FKw5WV85wYHsA73FVshwCmahT0lUmSFVyhiJb%2FIKSvwer8QVMppVpxwCvzRYxvq3s4D4Zbkz%2B0o5LjBskwMHBv9nCe2ODDx2IvqBTq1AfyrZAQmnVFG3ae4ryUk7rsC4v%2FakZVPqEeSWr1h0rb7WlRYaES53wYw1TNFECTsQSKkEEpaBwRCdcJk7vzpPwa%2FrAGvfkudpnjNcARtvF%2Bly5WBeWd7z4h0mvNOh77%2Biz5S1lVZ3xZyAXxVfJ03uJXe8X7nRRNphu7sQMpSwSjTJ3VN5X3Nwa37UhMMX9qUYPpfGgN1o5aNkYe0wmznb8E341rgw7DctQ1EbOMAT1d3xluQWSw%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190801T150843Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=ASIATSXCHOUACSTVQX74%2F20190801%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=663ebb777531ec01ae11c2c768d31f957056e42f3e55f1231560da150fc476d1'}, 'CreationTime': datetime.datetime(2019, 8, 1, 11, 6, 35, 726000, tzinfo=tzlocal()), 'CompletionTime': datetime.datetime(2019, 8, 1, 11, 8, 41, 231000, tzinfo=tzlocal()), 'Settings': {'ChannelIdentification': False}}, 'ResponseMetadata': {'RequestId': 'f91041c3-20c1-4a57-b6a3-6c5cba3b518e', 'HTTPStatusCode': 200, 'HTTPHeaders': {'content-type': 'application/x-amz-json-1.1', 'date': 'Thu, 01 Aug 2019 15:08:43 GMT', 'x-amzn-requestid': 'f91041c3-20c1-4a57-b6a3-6c5cba3b518e', 'content-length': '1985', 'connection': 'keep-alive'}, 'RetryAttempts': 0}}
+Transcription succesfull
+Appending to content table
+File not in conversations table yet.
+Get Audio File_path
+Writing Values into Conversations Table
+Appending to conversations table
+--------Job complete--------
+========Finished ETL========
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+========SETUP COMPLETE========
+========Starting JOBs========
+Starting Job 1/1
+Current File: SF_21_one-shild_pro.wav
+Generating wordcloud
+writing wordclloud to database
+Inserted frequency dict in content
+Calling Aylien APISummary Successfull
+Writing Bulletpoints to summary_bullets table
+--------Job complete--------
+========ALL JOBS FINISHED========
+2019-08-01 11:05:47
+Starting driver
+
+##################
+#Step 1 : ETL    #
+##################
+
+##################
+#Step 2 : NLP    #
+##################
+
+##################
+#    FINISHED    #
+##################
+########Starting SCRIPT########
+Found 38 files in content table
+Found 38 files in conversations table
+=======Setup Complete========
+Performing Job 1/39
+Current File: AM_602_schoolvouchers_pro.wav
+Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...Not ready yet...{'TranscriptionJob': {'TranscriptionJobName': 'AM_602_schoolvouchers_pro.wav', 'TranscriptionJobStatus': 'COMPLETED', 'LanguageCode': 'en-US', 'MediaSampleRateHertz': 16000, 'MediaFormat': 'wav', 'Media': {'MediaFileUri': 'https://s3-us-east-2.amazonaws.com/finaldebatebucket/cache-data/AM_602_schoolvouchers_pro.wav'}, 'Transcript': {'TranscriptFileUri': 'https://s3.us-east-2.amazonaws.com/aws-transcribe-us-east-2-prod/599281969166/AM_602_schoolvouchers_pro.wav/63715412-c054-4223-89d7-ab2532115173/asrOutput.json?X-Amz-Security-Token=AgoJb3JpZ2luX2VjEL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMiJHMEUCIQCvklGXxVlIdtkdIBfoyZwSV5ExMpXCtfvB4L7%2B6P1z%2BgIgJPz6vepNAtPkiIfGW9u8mUUWwxet1HiaVoapHKDT7Owq2gMIRhABGgwyNDYzNjEzMjI3NTIiDBfJpw8kTnFdftZXZyq3A8oPWOY622JuuGF6LWbXmPLzpF839YiqVPspIv7ryVd529%2FWb3O3DR4zJ6vFxl7o17o%2BSxKXiIBIqp6YUTlTonTkEZZObzqi1LSFR5inPpZ2r1lHmuP8lP5BKZEsx7GoU3CuGwlfw18DVf1oBuHNvV8%2BjZeehYiq%2BQR3n%2BoGrQ%2BwqNUjW3QhCxyM4NbhfG91pvoxoqrOYVor5oEmjyp9sufB22c3XW2jHRtB0YzM39El%2FgfXBS8%2FTOqcha1siaq1w%2BIKGSWNFoyVjVBEESbjiZo8Yij4QKW6fk57%2Bug31BWLyitBe7K8zRCaOmiMs5XkRZ92GGrATvlYUbo%2FKZsvX%2FumXIppcF0VCFXSwV9Z0q4v%2FO%2BUh9zHLZo96e9NY0bVJVtdUNOSTyUfPJVXnswuUsApn%2FyYJdKUWeQvgXN7T%2BKkNlRiNtICMscViLV5mxU5eM0iTZpfrLAxfl13sV5SMnUkObjR0AQmH2Z3o48dk9yptzC6HBjALbfx%2Ftt4FOVFord3qbqiItdQjIfA0EchvmAnK1RfWdlR0xcTZjrYck17vUVBpNc4mzuMre8HixedF4MC2yJSJTIw8%2Fyl6gU6tAHnsg9kANvyYAFGg7VjG4A4ZxUQo%2ByJK1AAZfzruQ8IaXNM96IQf08RtAImdUTi8MlUr9UogcsHLVVesz4cGM1mxBKLjPt7zNpl2L5JdKNPfv3KYXalWO4UbdIlFtzXCU%2BjjpWdMc7b6Ld8JV7YBj32adN8nIAjLO57ut%2FirOdPdyJPloqEiSITFx9TuygT0rKSt6%2Fs%2FUa1AARZrmO%2Bil8AkxazWTUS0hvlxVfRYQRB4mPsAH0%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190806T135451Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=ASIATSXCHOUAGMJ2MGEW%2F20190806%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=46e9a26e0e705ec9eb132e18e501bb75a2a0cdcd3ea7d947769e8e0aa95681a6'}, 'CreationTime': datetime.datetime(2019, 8, 6, 15, 52, 45, 491000, tzinfo=tzlocal()), 'CompletionTime': datetime.datetime(2019, 8, 6, 15, 54, 51, 269000, tzinfo=tzlocal()), 'Settings': {'ChannelIdentification': False}}, 'ResponseMetadata': {'RequestId': '1a92a2b1-7f3d-4687-8583-7271c7e77643', 'HTTPStatusCode': 200, 'HTTPHeaders': {'content-type': 'application/x-amz-json-1.1', 'date': 'Tue, 06 Aug 2019 13:54:51 GMT', 'x-amzn-requestid': '1a92a2b1-7f3d-4687-8583-7271c7e77643', 'content-length': '2007', 'connection': 'keep-alive'}, 'RetryAttempts': 0}}
+Transcription succesfull
+Appending to content table
+File not in conversations table yet.
+Get Audio File_path
+Writing Values into Conversations Table
+Appending to conversations table
+--------Job complete--------
+========Finished ETL========
+========SETUP========
+Connecting to mysql
+successfully imported module
+Connection to mysql successfull. with curser MySQLCursor: (Nothing executed yet)
+========SETUP COMPLETE========
+========Starting JOBs========
+Starting Job 1/1
+Current File: AM_602_schoolvouchers_pro.wav
+Generating wordcloud
+writing wordclloud to database
+Inserted frequency dict in content
+Calling Aylien APISummary Successfull
+Writing Bulletpoints to summary_bullets table
+--------Job complete--------
+========ALL JOBS FINISHED========
+2019-08-06 15:52:36
+Starting driver
+
+##################
+#Step 1 : ETL    #
+##################
+
+##################
+#Step 2 : NLP    #
+##################
+
+##################
+#    FINISHED    #
+##################

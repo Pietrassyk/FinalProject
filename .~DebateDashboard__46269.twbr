@@ -1,0 +1,1210 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0515.1028                               -->
+<workbook source-build='2019.1.4 (20191.19.0515.1028)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style-theme name='modern' />
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Wordcloud Size' datatype='integer' default-format='N' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='15'>
+        <calculation class='tableau' formula='15' />
+      </column>
+    </datasource>
+    <datasource caption='content (debater)' inline='true' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='debaterdb.c7oenlqovcjd.us-east-2.rds.amazonaws.com' name='mysql.1stz57q0bkx79q162a28218t9a9v'>
+            <connection class='mysql' dbname='debater' odbc-native-protocol='' one-time-sql='' port='3306' server='debaterdb.c7oenlqovcjd.us-east-2.rds.amazonaws.com' source-charset='' username='piet' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[content].[origin]' />
+              <expression op='[conversations].[filename]' />
+            </expression>
+          </clause>
+          <relation connection='mysql.1stz57q0bkx79q162a28218t9a9v' name='content' table='[content]' type='table' />
+          <relation connection='mysql.1stz57q0bkx79q162a28218t9a9v' name='conversations' table='[conversations]' type='table' />
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[index]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>index</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos_in_conv</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pos_in_conv]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>pos_in_conv</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>end_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[end_time]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>end_time</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[start_time]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>start_time</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>confidence</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[confidence]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>confidence</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>length</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[length]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>length</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pause_after</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pause_after]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>pause_after</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>origin</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[origin]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>origin</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>speaker</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[speaker]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>speaker</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lemmatized</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lemmatized]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>lemmatized</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>45</width>
+            <contains-null>true</contains-null>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[freq]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>freq</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>23</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sentiment_score</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[sentiment_score]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>sentiment_score</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>23</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weight</remote-name>
+            <remote-type>4</remote-type>
+            <local-name>[weight]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>weight</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>23</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_REAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_FLOAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freq_rank</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[freq_rank]</local-name>
+            <parent-name>[content]</parent-name>
+            <remote-alias>freq_rank</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idconversations</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idconversations]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>idconversations</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>filename</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[filename]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>filename</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>128</width>
+            <contains-null>true</contains-null>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>topic</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[topic]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>topic</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>128</width>
+            <contains-null>true</contains-null>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_VARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pro_topic</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[pro_topic]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>pro_topic</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>json_path</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[json_path]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>json_path</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>full_text</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[full_text]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>full_text</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>audio_path</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[audio_path]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>audio_path</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>summary</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[summary]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>summary</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bigram_cloud_url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[bigram_cloud_url]</local-name>
+            <parent-name>[conversations]</parent-name>
+            <remote-alias>bigram_cloud_url</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>65535</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='280' flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_LONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_CHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Freq_Rank' datatype='integer' name='[Calculation_1479995442376658945]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='index()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Confidence' datatype='real' name='[confidence]' role='measure' type='quantitative' />
+      <column caption='Content' datatype='string' name='[content]' role='dimension' type='nominal' />
+      <column caption='End Time' datatype='real' name='[end_time]' role='measure' type='quantitative' />
+      <column caption='Filename' datatype='string' name='[filename]' role='dimension' type='nominal' />
+      <column caption='Freq' datatype='real' name='[freq]' role='measure' type='quantitative' />
+      <column caption='Full Text' datatype='string' name='[full_text]' role='dimension' type='nominal' />
+      <column caption='Idconversations' datatype='integer' name='[idconversations]' role='measure' type='quantitative' />
+      <column caption='Index' datatype='integer' name='[index]' role='measure' type='quantitative' />
+      <column caption='Json Path' datatype='string' name='[json_path]' role='dimension' type='nominal' />
+      <column caption='Word' datatype='string' name='[lemmatized]' role='dimension' type='nominal' />
+      <column caption='Length' datatype='real' name='[length]' role='measure' type='quantitative' />
+      <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+      <column caption='Pause After' datatype='real' name='[pause_after]' role='measure' type='quantitative' />
+      <column caption='Pos In Conv' datatype='integer' name='[pos_in_conv]' role='measure' type='quantitative' />
+      <column caption='Pro Topic' datatype='integer' name='[pro_topic]' role='measure' type='quantitative' />
+      <column caption='Sentiment Score' datatype='real' name='[sentiment_score]' role='measure' type='quantitative' />
+      <column caption='Speaker' datatype='string' name='[speaker]' role='dimension' type='nominal' />
+      <column caption='Start Time' datatype='real' name='[start_time]' role='measure' type='quantitative' />
+      <column caption='Summary' datatype='string' name='[summary]' role='dimension' type='nominal' />
+      <column caption='Topic' datatype='string' name='[topic]' role='dimension' type='nominal' />
+      <column caption='Type' datatype='string' name='[type]' role='dimension' type='nominal' />
+      <column caption='Weight' datatype='real' name='[weight]' role='measure' type='quantitative' />
+      <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.483974' measure-ordering='alphabetic' measure-percentage='0.479167' parameter-percentage='0.036859' rowDisplayCount='10000' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:origin:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;rpp16.wav&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;TL_1_ban-video-games_pro.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;AM_101_affirmativeaction_pro.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;EH_61_doping-in-sport_pro.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;JL_181_multiculturalism_pro.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;JL_483_freedom-of-speech_pro.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;testwithrandomname.wav&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;YB_483_freedom-of-speech_pro.wav&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;DJ_841_blasphemy_pro.wav&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;DJ_681_ip-rights_pro.wav&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;HE_881_holocaust-denial_pro.wav&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;DJ_881_holocaust-denial_pro_2.wav&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;TL_121_ban-boxing_pro.wav&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;DJ_644_year-round-schooling_pro.wav&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;EH_1_ban-video-games_pro.wav&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;DJ_1_ban-video-games_pro.wav&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;HE_482_tobacco_pro.wav&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+      <datasources>
+        <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+        <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+        <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+        <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <filter class='quantitative' column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' included-values='in-range'>
+        <min>0</min>
+        <max>5</max>
+      </filter>
+      <filter class='categorical' column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]'>
+        <groupfilter function='member' level='[none:origin:nk]' member='&quot;TL_1_ban-video-games_pro.wav&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='FInalWordcloud'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='22'>&lt;</run>
+            <run bold='true' fontalignment='1' fontsize='22'>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]</run>
+            <run bold='true' fontalignment='1' fontsize='22'>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+            <column-instance column='[freq]' derivation='Avg' name='[avg:freq:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[freq_rank]' derivation='Avg' name='[avg:freq_rank:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[sentiment_score]' derivation='Avg' name='[avg:sentiment_score:qk]' pivot='key' type='quantitative' />
+            <column caption='Freq' datatype='real' name='[freq]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+            <column caption='Word' datatype='string' name='[lemmatized]' role='dimension' type='nominal' />
+            <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[lemmatized]' derivation='None' name='[none:lemmatized:nk]' pivot='key' type='nominal' />
+            <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+            <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+            <column caption='Sentiment Score' datatype='real' name='[sentiment_score]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]</column>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' value='n0;-0' />
+            <format attr='text-format' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq_rank:qk]' value='n0;-0' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' value='n0;-0' />
+            <format attr='text-format' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq_rank:qk]' value='n0;-0' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' max='1.0' min='-1.0' num-steps='5' palette='red_green_diverging_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Text' />
+            <encodings>
+              <color column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' />
+              <size column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' />
+              <lod column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq_rank:qk]' />
+              <text column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:lemmatized:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Word : </run>
+                <run bold='true'>&lt;[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:lemmatized:nk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Frequency : </run>
+                <run bold='true'>&lt;[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Freqquency Rank in File: </run>
+                <run bold='true'>&lt;[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq_rank:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Sentiment Score: </run>
+                <run bold='true'>&lt;[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{61122FD1-D06B-44B6-B476-150A34F35019}' />
+    </worksheet>
+    <worksheet name='Overview Bar'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+            <column caption='Freq_Rank' datatype='integer' name='[Calculation_1479995442376658945]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='index()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[freq]' derivation='Avg' name='[avg:freq:qk]' pivot='key' type='quantitative' />
+            <column caption='Freq' datatype='real' name='[freq]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+            <column caption='Word' datatype='string' name='[lemmatized]' role='dimension' type='nominal' />
+            <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[lemmatized]' derivation='None' name='[none:lemmatized:nk]' pivot='key' type='nominal' />
+            <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+            <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1479995442376658945]' derivation='User' name='[usr:Calculation_1479995442376658945:ok:10]' pivot='key' type='ordinal'>
+              <table-calc ordering-field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[lemmatized]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:lemmatized:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]</column>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[usr:Calculation_1479995442376658945:ok:10]' value='24' />
+            <format attr='text-format' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' value='n#,##0;-#,##0' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[usr:Calculation_1479995442376658945:ok:10]' value='36' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' value='left' />
+            <format attr='vertical-align' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' value='center' />
+            <format attr='display' field='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='rows' value='1' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' />
+              <text column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.7141436338424683' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk] / ([federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:lemmatized:nk] / [federated.1ez5ydn1kjd97w1e6qk1414jinuj].[usr:Calculation_1479995442376658945:ok:10]))</rows>
+        <cols>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:freq:qk]</cols>
+      </table>
+      <simple-id uuid='{4B156281-BE37-484F-9A63-D8BEFE494461}' />
+    </worksheet>
+    <worksheet name='Summary Text'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+            <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+            <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+            <column-instance column='[summary]' derivation='None' name='[none:summary:nk]' pivot='key' type='nominal' />
+            <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+            <column caption='Summary' datatype='string' name='[summary]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]</column>
+            <column>[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='880' />
+            <format attr='height' value='250' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:summary:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text />
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='2.5966851711273193' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{807F4396-585B-48DF-A715-F81C2AFD0749}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 2'>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#00000000' />
+        </style-rule>
+        <style-rule element='dash-subtitle'>
+          <format attr='background-color' value='#ffffff' />
+        </style-rule>
+      </style>
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+        <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+        <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+        <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='56250' id='3' name='FInalWordcloud' show-title='false' w='50000' x='33000' y='250' />
+        <zone h='7625' id='4' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='16000' x='83400' y='1125' />
+        <zone h='9500' id='6' name='FInalWordcloud' pane-specification-id='0' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' type='color' w='14000' x='84200' y='15625' />
+        <zone h='39000' id='11' name='Summary Text' show-title='false' w='99900' x='0' y='56250' />
+        <zone h='5500' id='12' mode='dropdown' name='Summary Text' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' w='16000' x='83700' y='9375' />
+        <zone h='57250' id='13' name='Overview Bar' w='33300' x='0' y='0' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1050' minheight='1050' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='20' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='21' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='57250' id='13' is-fixed='true' name='Overview Bar' w='33300' x='0' y='0'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7625' id='4' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='16000' x='83400' y='1125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='56250' id='3' is-fixed='true' name='FInalWordcloud' show-title='false' w='50000' x='33000' y='250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9500' id='6' name='FInalWordcloud' pane-specification-id='0' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' type='color' w='14000' x='84200' y='15625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='5500' id='12' mode='dropdown' name='Summary Text' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' w='16000' x='83700' y='9375'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='39000' id='11' is-fixed='true' name='Summary Text' show-title='false' w='99900' x='0' y='56250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E796DEF5-4E29-4E3B-8E92-E5344E3FEC6D}' />
+    </dashboard>
+    <dashboard name='Dashboard 3'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones />
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4F7582F3-07E1-4FF5-8EC0-CCC95CB2E512}' />
+    </dashboard>
+    <dashboard name='Overview'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='content (debater)' name='federated.1ez5ydn1kjd97w1e6qk1414jinuj' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1ez5ydn1kjd97w1e6qk1414jinuj'>
+        <column datatype='integer' name='[freq_rank]' role='measure' type='quantitative' />
+        <column-instance column='[freq_rank]' derivation='None' name='[none:freq_rank:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[origin]' derivation='None' name='[none:origin:nk]' pivot='key' type='nominal' />
+        <column caption='Origin' datatype='string' name='[origin]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone fixed-size='814' h='98000' id='5' is-fixed='true' type='layout-basic' w='81400' x='800' y='1000'>
+              <zone h='98000' id='11' name='Overview Bar' w='30824' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='3' name='FInalWordcloud' show-title='false' w='50576' x='31624' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone fixed-size='288' h='49000' id='12' is-fixed='true' name='Summary Text' show-title='false' w='50576' x='31624' y='50000'>
+                <layout-cache type-h='cell' type-w='cell' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h='98000' id='6' param='vert' type='layout-flow' w='16800' x='82200' y='1000'>
+              <zone h='8125' id='8' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='16800' x='82200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='6000' id='9' mode='dropdown' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' w='16800' x='82200' y='9125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7125' id='10' name='FInalWordcloud' pane-specification-id='0' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' type='color' w='16800' x='82200' y='15125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1050' minheight='1050' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='25' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='26' param='vert' type='layout-flow' w='84000' x='8000' y='8000'>
+                <zone fixed-size='280' h='98000' id='11' is-fixed='true' name='Overview Bar' w='30824' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8625' id='8' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' w='16800' x='82200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='6500' id='9' mode='dropdown' name='FInalWordcloud' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' w='16800' x='82200' y='9625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='FInalWordcloud' show-title='false' w='50576' x='31624' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='10' name='FInalWordcloud' pane-specification-id='0' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' type='color' w='16800' x='82200' y='16125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='12' is-fixed='true' name='Summary Text' show-title='false' w='50576' x='31624' y='50000'>
+                  <layout-cache type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{915FC8E9-DCBB-45F5-9F6F-D1569EC0B27D}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='FInalWordcloud'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card mode='dropdown' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[avg:sentiment_score:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{300CDCD3-8475-42AD-826E-212438439CC8}' />
+    </window>
+    <window class='worksheet' name='Summary Text'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:origin:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4E9A0831-A107-4FD5-8EE8-3F88F42620E7}' />
+    </window>
+    <window class='worksheet' name='Overview Bar'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1ez5ydn1kjd97w1e6qk1414jinuj].[none:freq_rank:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0AA80674-BA0B-46F6-A1B1-A1D34C0E3782}' />
+    </window>
+    <window class='dashboard' name='Overview'>
+      <viewpoints>
+        <viewpoint name='FInalWordcloud'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Overview Bar'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Summary Text'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{642742E4-4EBD-4FB3-9FEE-0C77AF2A90D3}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='FInalWordcloud'>
+          <zoom type='fit-height' />
+        </viewpoint>
+        <viewpoint name='Overview Bar'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Summary Text'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='12' />
+      <simple-id uuid='{431666BB-499F-49A2-BA52-69869B964EED}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 3'>
+      <viewpoints />
+      <active id='-1' />
+      <device-preview visible='true' />
+      <simple-id uuid='{5541AC7B-0BB5-4DEF-9349-B70B3AF41AE1}' />
+    </window>
+  </windows>
+</workbook>

@@ -1,7 +1,7 @@
 import boto3, botocore
 from Private.flask_credentials import S3_KEY, S3_SECRET, S3_BUCKET ,S3_LOCATION , sub_path
 
-ALLOWED_EXTENSIONS = ["wav","pdf"]
+ALLOWED_EXTENSIONS = ["wav","flac", "mp3", "aac", "m4a" , "ac3", "aif", "aiff"]
 
 
 
